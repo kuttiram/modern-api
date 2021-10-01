@@ -8,7 +8,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Linq;
 
 namespace ModernAPI.Services
 {
@@ -127,7 +126,7 @@ namespace ModernAPI.Services
                 else
                     return false;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 // return null if validation fails
                 return false;
