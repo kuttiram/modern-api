@@ -54,10 +54,9 @@ namespace ModernAPI.Helpers
                 // attach user to context on successful jwt validation
                 context.Items["User"] = userService.GetById(userId);
             }
-            catch(Exception ex)
+            catch //(Exception ex)
             {
-                // do nothing if jwt validation fails
-                // user is not attached to context so request won't have access to secure routes
+                
             }
         }
     }
