@@ -1,9 +1,6 @@
-﻿using ModernAPI.Interface;
-using ModernAPI.Model;
-using System;
+﻿using Modern.Object.Models;
+using ModernAPI.Interface;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ModernAPI.Repository
 {

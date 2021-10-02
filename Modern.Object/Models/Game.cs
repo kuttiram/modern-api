@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ModernAPI.Model
+namespace Modern.Object.Models
 {
     public class Game
     {

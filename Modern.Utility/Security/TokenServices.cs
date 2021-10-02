@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using ModernAPI.Helpers;
-using ModernAPI.Model;
+using Modern.Object.Models;
+using Modern.Utility.ISecurity;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -9,37 +9,24 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
-namespace ModernAPI.Services
+namespace Modern.Utility.Security
 {
-    public interface IUserService
+    public class TokenService : ITokenService
     {
-        AuthenticateResponse Authenticate(AuthenticateRequest model);
-        IEnumerable<User> GetAll();
-        User GetById(int id);
-        bool ValidateJwtToken(string token);
-    }
-
-    public class UserService : IUserService
-    {
-        // users hardcoded for simplicity, store in a db with hashed passwords in production applications
-        private List<User> _users = new List<User>
-        {
-            new User { Id = 1, FirstName = "Test", LastName = "User", Username = "test", Password = "test" }
-        };
-
         private readonly AppSettings _appSettings;
 
-        public UserService(IOptions<AppSettings> appSettings)
+        public TokenService(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
         }
 
-        public AuthenticateResponse Authenticate(AuthenticateRequest model)
+        public AuthenticateResponse Authenticate(LoginInfo user)
         {
-            var user = _users.SingleOrDefault(x => x.Username == model.Username && x.Password == model.Password);
+            //Static data commented
+            //var user = _users.SingleOrDefault(x => x.Username == model.Username && x.Password == model.Password);
 
             // return null if user not found
-            if (user == null) return new AuthenticateResponse(new User(), string.Empty, false);
+            //if (user == null) return new AuthenticateResponse(new User(), string.Empty, false);
 
             // authentication successful so generate jwt token
             var token = generateJwtToken(user);
@@ -47,19 +34,19 @@ namespace ModernAPI.Services
             return new AuthenticateResponse(user, token, true);
         }
 
-        public IEnumerable<User> GetAll()
-        {
-            return _users;
-        }
+        //public IEnumerable<LoginInfo> GetAll()
+        //{
+        //    return LoginInfo;
+        //}
 
-        public User GetById(int id)
-        {
-            return _users.FirstOrDefault(x => x.Id == id);
-        }
+        //public LoginInfo GetById(int id)
+        //{
+        //    return LoginInfo.FirstOrDefault(x => x.Id == id);
+        //}
 
         // helper methods
 
-        private string generateJwtToken(User user)
+        private string generateJwtToken(LoginInfo user)
         {
             // generate token that is valid for 7 days
             //var tokenHandler = new JwtSecurityTokenHandler();
@@ -76,9 +63,9 @@ namespace ModernAPI.Services
             var roles = new List<string> { "Admin", "Manager" };
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Username),
+                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier, user.Username)
+                new Claim(ClaimTypes.NameIdentifier, user.UserName)
             };
 
             roles.ForEach(role =>

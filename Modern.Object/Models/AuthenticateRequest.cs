@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ModernAPI.Model
+namespace Modern.Object.Models
 {
     public class AuthenticateRequest
     {
