@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ModernAPI.Helpers
+namespace Modern.Object.Models
 {
     public class AppSettings
     {

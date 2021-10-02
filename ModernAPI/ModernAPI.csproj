@@ -5,16 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.19" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.19" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.19" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.19">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.12.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.12.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BisnessAccessLayer\Modern.BisnessAccessLayer.csproj" />
+    <ProjectReference Include="..\DadaAccessLayer\Modern.DadaAccessLayer.csproj" />
+    <ProjectReference Include="..\Modern.Object\Modern.Object.csproj" />
+    <ProjectReference Include="..\Modern.Utility\Modern.Utility.csproj" />
   </ItemGroup>
 
 

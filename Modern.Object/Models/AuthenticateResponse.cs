@@ -1,4 +1,6 @@
-﻿namespace ModernAPI.Model
+﻿using Modern.Object.Models;
+
+namespace Modern.Object.Models
 {
     public class AuthenticateResponse
     {
@@ -9,12 +11,12 @@
         public string Token { get; set; }
         public bool isSucess { get; set; }
 
-        public AuthenticateResponse(User user, string token, bool isSuccess)
+        public AuthenticateResponse(LoginInfo user, string token, bool isSuccess)
         {
-            Id = user.Id;
+            Id = user.UserId;
             FirstName = user.FirstName;
             LastName = user.LastName;
-            Username = user.Username;
+            Username = user.UserName;
             Token = token;
             isSucess = isSuccess;
         }

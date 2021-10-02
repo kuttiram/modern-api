@@ -1,4 +1,4 @@
-﻿using ModernAPI.Model;
+﻿using Modern.Object.Models;
 using System.Collections.Generic;
 
 namespace ModernAPI.Interface

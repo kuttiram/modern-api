@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using ModernAPI.Model;
-using ModernAPI.Services;
+using Modern.BisnessAccessLayer.IRepository;
+using Modern.Object.Models;
 
 namespace ModernAPI.Controllers
 {
@@ -10,17 +9,17 @@ namespace ModernAPI.Controllers
     [Route("api/v1/[controller]")]
     public class UsersController : Controller
     {
-        private IUserService _userService;
+        private ILoginBusinessLogic _loginBusinessLogic;
 
-        public UsersController(IUserService userService)
+        public UsersController(ILoginBusinessLogic loginBusinessLogic)
         {
-            _userService = userService;
+            _loginBusinessLogic = loginBusinessLogic;
         }
 
         [HttpPost("authenticate")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
-            var response = _userService.Authenticate(model);
+            var response = _loginBusinessLogic.LoginDetailsFromBusiness(model.Username, model.Password);
 
             if (response == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
@@ -31,17 +30,17 @@ namespace ModernAPI.Controllers
         [HttpGet("validatetoken")]
         public IActionResult ValidateToken(string token)
         {
-            var response = _userService.ValidateJwtToken(token);
+            var response = _loginBusinessLogic.ValidateJwtToken(token);
             var responseResult = new { isValid = response };
             return Ok(responseResult);
         }
 
-        [Authorize]
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            var users = _userService.GetAll();
-            return Ok(users);
-        }
+        //[Authorize]
+        //[HttpGet]
+        //public IActionResult GetAll()
+        //{
+        //    var users = _userService.GetAll();
+        //    return Ok(users);
+        //}
     }
 }
