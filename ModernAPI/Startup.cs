@@ -12,8 +12,6 @@ using Modern.DadaAccessLayer.Repository;
 using Modern.Object.Models;
 using Modern.Utility.ISecurity;
 using Modern.Utility.Security;
-using ModernAPI.Interface;
-using ModernAPI.Repository;
 using System;
 using System.Text;
 
@@ -51,6 +49,7 @@ namespace ModernAPI
             services.AddScoped<IAesOperation, AesOperation>();
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<ILoginBusinessLogic, LoginBusinessLogic>();
+            services.AddScoped<IGameBusinessLogic, GameBusinessLogic>();
 
             //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 

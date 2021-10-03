@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
-using ModernAPI.Interface;
+﻿using Microsoft.AspNetCore.Mvc;
+using Modern.BisnessAccessLayer.IRepository;
 
 namespace ModernAPI.Controllers
 {
@@ -9,8 +7,8 @@ namespace ModernAPI.Controllers
     [ApiController]
     public class GameController : Controller
     {
-        private IGamesRepository _gamesRepository;
-        public GameController(IGamesRepository gamesRepository)
+        private IGameBusinessLogic _gamesRepository;
+        public GameController(IGameBusinessLogic gamesRepository)
         {
             _gamesRepository = gamesRepository;
         }

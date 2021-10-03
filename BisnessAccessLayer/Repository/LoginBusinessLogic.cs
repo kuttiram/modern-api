@@ -22,17 +22,19 @@ namespace Modern.BisnessAccessLayer.Repository
             var loginResponse = this._Login.LoginDetails(userName, password, out bool isFound);
             if (isFound)
             {
-                return this._tokenService.Authenticate(loginResponse); ;
+                var tokenResult = this._tokenService.Authenticate(loginResponse); ;
+                tokenResult.isSucess = isFound;
+                return tokenResult;
             }
             else
             {
-                return null;
+                return new AuthenticateResponse(isFound);
             }
         }
 
         public bool ValidateJwtToken(string token)
         {
-            if(this._tokenService.ValidateJwtToken(token))
+            if (this._tokenService.ValidateJwtToken(token))
             {
                 return true;
             }
