@@ -31,8 +31,7 @@ namespace ModernAPI.Controllers
         public IActionResult ValidateToken(string token)
         {
             var response = _loginBusinessLogic.ValidateJwtToken(token);
-            var responseResult = new { isValid = response };
-            return Ok(responseResult);
+            return Ok(new { isValid = response });
         }
 
         //[Authorize]

@@ -11,6 +11,11 @@ namespace Modern.Object.Models
         public string Token { get; set; }
         public bool isSucess { get; set; }
 
+        public AuthenticateResponse(bool isSuccess)
+        {
+            isSucess = isSuccess;
+        }
+
         public AuthenticateResponse(LoginInfo user, string token, bool isSuccess)
         {
             Id = user.UserId;

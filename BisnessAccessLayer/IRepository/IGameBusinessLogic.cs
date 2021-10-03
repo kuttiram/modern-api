@@ -1,9 +1,9 @@
 ﻿using Modern.Object.Models;
 using System.Collections.Generic;
 
-namespace ModernAPI.Interface
+namespace Modern.BisnessAccessLayer.IRepository
 {
-    public interface IGamesRepository
+    public interface IGameBusinessLogic
     {
         List<Game> GetGamesList();
     }

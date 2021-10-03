@@ -1,8 +1,8 @@
-﻿using Modern.Object.Models;
-using ModernAPI.Interface;
+﻿using Modern.DadaAccessLayer.IRepository;
+using Modern.Object.Models;
 using System.Collections.Generic;
 
-namespace ModernAPI.Repository
+namespace Modern.DadaAccessLayer.Repository
 {
     public class GamesRepository : IGamesRepository
     {
