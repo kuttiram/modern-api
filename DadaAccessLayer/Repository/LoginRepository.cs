@@ -1,33 +1,34 @@
 ﻿using AutoMapper;
-using DadaAccessLayer.Models;
-using Modern.DadaAccessLayer.IRepository;
+using DataAccessLayer.Models;
+using Microsoft.Extensions.Logging;
+using Modern.DataAccessLayer.IRepository;
+using Modern.DataAccessLayer.UOW;
 using Modern.Object.Models;
 using Modern.Utility.ISecurity;
-using System;
 using System.Linq;
-using System.Text;
 
-namespace Modern.DadaAccessLayer.Repository
+namespace Modern.DataAccessLayer.Repository
 {
     public class LoginRepository : ILoginRepository
     {
         private readonly IMapper _mapper;
-        private readonly ModernDataContext _dbContext;
+        //private readonly ModernDataContext _dbContext;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IAesOperation _aesOperation;
 
-        public LoginRepository(IMapper mapper, ModernDataContext dbContext, IAesOperation aesOperation)
+        public LoginRepository(IMapper mapper, IUnitOfWork unitOfWork, IAesOperation aesOperation)
         {
             _mapper = mapper;
-            _dbContext = dbContext;
+            _unitOfWork = unitOfWork;
             _aesOperation = aesOperation;
         }
 
         public LoginInfo LoginDetails(string userName, string password, out bool isFound)
         {
-            string keyDetails = this._dbContext.KeyHasKey.Where(data => data.IsActive == 1).Select(val => val.KeyText).FirstOrDefault();
+            string keyDetails = this._unitOfWork.KeyInfo.GetAll().Result.Where(data => data.IsActive == 1).Select(val => val.KeyText).FirstOrDefault();
             if (!string.IsNullOrEmpty(keyDetails))
             {
-                UserUserInfo userDetails = this._dbContext.UserUserInfo.Where(data => data.Email == userName).FirstOrDefault();
+                UserUserInfo userDetails = this._unitOfWork.User.GetAll().Result.Where(data => data.Email == userName).FirstOrDefault();
                 if (userDetails != null)
                 {
                     var pwdDecription = this._aesOperation.DecryptCombined(this._aesOperation.ByteArrayToHexString(userDetails.Password), keyDetails);//Encoding.Unicode.GetString(userDetails.Password));

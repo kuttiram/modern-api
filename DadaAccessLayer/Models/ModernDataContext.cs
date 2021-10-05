@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace DadaAccessLayer.Models
+namespace DataAccessLayer.Models
 {
     public partial class ModernDataContext : DbContext
     {

@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BisnessAccessLayer\Modern.BisnessAccessLayer.csproj" />
-    <ProjectReference Include="..\DadaAccessLayer\Modern.DadaAccessLayer.csproj" />
+    <ProjectReference Include="..\DadaAccessLayer\Modern.DataAccessLayer.csproj" />
     <ProjectReference Include="..\Modern.Object\Modern.Object.csproj" />
     <ProjectReference Include="..\Modern.Utility\Modern.Utility.csproj" />
   </ItemGroup>

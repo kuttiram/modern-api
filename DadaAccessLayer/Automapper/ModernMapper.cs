@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using DadaAccessLayer.Models;
+using DataAccessLayer.Models;
 using Modern.Object.Models;
 
-namespace Modern.Utility.Automapper
+namespace Modern.DataAccessLayer.Automapper
 {
     public class ModernMapper : Profile
     {
