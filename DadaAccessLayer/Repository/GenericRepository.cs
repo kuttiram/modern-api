@@ -1,12 +1,10 @@
-﻿using DataAccessLayer.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
 using Modern.DataAccessLayer.IRepository;
+using Modern.DataAccessLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Modern.DataAccessLayer.Repository
@@ -47,9 +45,10 @@ namespace Modern.DataAccessLayer.Repository
             return 1;
         }
 
-        public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate)
+        public virtual async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate)
         {
-            return await _context.Set<T>().Where(predicate).ToListAsync();
+            var result = await _context.Set<T>().Where(predicate).ToListAsync();
+            return result;
         }
     }
 }

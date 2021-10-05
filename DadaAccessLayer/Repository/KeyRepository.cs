@@ -1,8 +1,5 @@
-﻿using DataAccessLayer.Models;
-using Modern.DataAccessLayer.IRepository;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Modern.DataAccessLayer.IRepository;
+using Modern.DataAccessLayer.Models;
 
 namespace Modern.DataAccessLayer.Repository
 {

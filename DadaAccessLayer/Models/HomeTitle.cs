@@ -7,10 +7,11 @@ using System.Collections.Generic;
 
 namespace Modern.DataAccessLayer.Models
 {
-    public partial class KeyHasKey
+    public partial class HomeTitle
     {
-        public int KeyId { get; set; }
-        public string KeyText { get; set; }
+        public int TitleId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
         public bool IsActive { get; set; }
         public string CreateBy { get; set; }
         public DateTime? CreateAt { get; set; }

@@ -1,8 +1,8 @@
-﻿using DataAccessLayer.Models;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Modern.BisnessAccessLayer.IRepository;
 using Modern.BisnessAccessLayer.Repository;
 using Modern.DataAccessLayer.IRepository;
+using Modern.DataAccessLayer.Models;
 using Modern.DataAccessLayer.Repository;
 using Modern.DataAccessLayer.UOW;
 using Modern.Utility.ISecurity;
@@ -21,10 +21,11 @@ namespace ModernAPI.Dependency
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<ILoginBusinessLogic, LoginBusinessLogic>();
             services.AddScoped<IGameBusinessLogic, GameBusinessLogic>();
+            services.AddScoped<IHomeBusinessLogic, HomeBusinessLogic>();
 
             //Unit of work implimentation
-            services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<IKeyRepository, KeyRepository>();
+            //services.AddTransient<IUserRepository, UserRepository>();
+            //services.AddTransient<IKeyRepository, KeyRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             return services;

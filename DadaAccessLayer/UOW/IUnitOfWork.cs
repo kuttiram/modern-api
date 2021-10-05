@@ -6,8 +6,10 @@ namespace Modern.DataAccessLayer.UOW
 {
     public interface IUnitOfWork : IDisposable
     {
-        IUserRepository User { get; }
-        IKeyRepository KeyInfo { get; }
+        IUserRepository user { get; }
+        IKeyRepository keyInfo { get; }
+        IHomeTitleRepository homeTitle { get; }
+        IPageContentRepository contentBanner { get; }
         Task SaveAsync();
     }
 }

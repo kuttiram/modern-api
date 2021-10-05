@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using DataAccessLayer.Models;
-using Microsoft.Extensions.Logging;
 using Modern.DataAccessLayer.IRepository;
+using Modern.DataAccessLayer.Models;
 using Modern.DataAccessLayer.UOW;
 using Modern.Object.Models;
 using Modern.Utility.ISecurity;
@@ -25,10 +24,10 @@ namespace Modern.DataAccessLayer.Repository
 
         public LoginInfo LoginDetails(string userName, string password, out bool isFound)
         {
-            string keyDetails = this._unitOfWork.KeyInfo.GetAll().Result.Where(data => data.IsActive == 1).Select(val => val.KeyText).FirstOrDefault();
+            string keyDetails = this._unitOfWork.keyInfo.GetAll().Result.Where(data => data.IsActive == true).Select(val => val.KeyText).FirstOrDefault();
             if (!string.IsNullOrEmpty(keyDetails))
             {
-                UserUserInfo userDetails = this._unitOfWork.User.GetAll().Result.Where(data => data.Email == userName).FirstOrDefault();
+                UserUserInfo userDetails = this._unitOfWork.user.GetAll().Result.Where(data => data.Email == userName).FirstOrDefault();
                 if (userDetails != null)
                 {
                     var pwdDecription = this._aesOperation.DecryptCombined(this._aesOperation.ByteArrayToHexString(userDetails.Password), keyDetails);//Encoding.Unicode.GetString(userDetails.Password));

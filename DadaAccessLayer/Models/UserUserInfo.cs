@@ -5,7 +5,7 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace DataAccessLayer.Models
+namespace Modern.DataAccessLayer.Models
 {
     public partial class UserUserInfo
     {
