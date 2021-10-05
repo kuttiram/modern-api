@@ -1,4 +1,4 @@
-using DadaAccessLayer.Models;
+using DataAccessLayer.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,11 +7,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Modern.BisnessAccessLayer.IRepository;
 using Modern.BisnessAccessLayer.Repository;
-using Modern.DadaAccessLayer.IRepository;
-using Modern.DadaAccessLayer.Repository;
+using Modern.DataAccessLayer.IRepository;
+using Modern.DataAccessLayer.Repository;
 using Modern.Object.Models;
 using Modern.Utility.ISecurity;
 using Modern.Utility.Security;
+using ModernAPI.Dependency;
 using System;
 using System.Text;
 
@@ -31,6 +32,10 @@ namespace ModernAPI
         {
             services.AddSwaggerGen();
             services.AddCors();
+
+            // configure DI for application services
+            services.AddRepository();
+
             services.AddControllers();
 
             // configure strongly typed settings object
@@ -41,15 +46,6 @@ namespace ModernAPI
 
             //I don't want refer dataaccesslya in api
             //services.AddDbContext<ModernDataContext>(options => options.UseSqlServer("Server=DESKTOP-GV4424J;Database=TestDB;Trusted_Connection=True;"));
-
-            // configure DI for application services
-            services.AddDbContext<ModernDataContext>();
-            services.AddScoped<ITokenService, TokenService>();
-            services.AddScoped<IGamesRepository, GamesRepository>();
-            services.AddScoped<IAesOperation, AesOperation>();
-            services.AddScoped<ILoginRepository, LoginRepository>();
-            services.AddScoped<ILoginBusinessLogic, LoginBusinessLogic>();
-            services.AddScoped<IGameBusinessLogic, GameBusinessLogic>();
 
             //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 

@@ -1,6 +1,6 @@
 ﻿using Modern.Object.Models;
 
-namespace Modern.DadaAccessLayer.IRepository
+namespace Modern.DataAccessLayer.IRepository
 {
     public interface ILoginRepository
     {

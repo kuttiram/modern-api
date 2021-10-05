@@ -1,6 +1,6 @@
 ﻿
 using Modern.BisnessAccessLayer.IRepository;
-using Modern.DadaAccessLayer.IRepository;
+using Modern.DataAccessLayer.IRepository;
 using Modern.Object.Models;
 using Modern.Utility.ISecurity;
 

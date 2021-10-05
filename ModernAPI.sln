@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModernAPI", "ModernAPI\ModernAPI.csproj", "{DBCA36C4-6C3A-42F4-8ED3-D3F9517D60EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modern.DadaAccessLayer", "DadaAccessLayer\Modern.DadaAccessLayer.csproj", "{E3CA59B1-EB7A-4040-B405-F4F0E10DFD98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modern.DataAccessLayer", "DadaAccessLayer\Modern.DataAccessLayer.csproj", "{E3CA59B1-EB7A-4040-B405-F4F0E10DFD98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modern.BisnessAccessLayer", "BisnessAccessLayer\Modern.BisnessAccessLayer.csproj", "{CD0B9207-05FC-4266-B610-1DA3295D8C12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modern.BisnessAccessLayer", "BisnessAccessLayer\Modern.BisnessAccessLayer.csproj", "{CD0B9207-05FC-4266-B610-1DA3295D8C12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modern.Utility", "Modern.Utility\Modern.Utility.csproj", "{853DBB99-BA78-4B1C-8D12-DE37F431EE74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modern.Utility", "Modern.Utility\Modern.Utility.csproj", "{853DBB99-BA78-4B1C-8D12-DE37F431EE74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modern.Object", "Modern.Object\Modern.Object.csproj", "{F0DF2EE4-93F3-40B5-A75B-6071831726C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modern.Object", "Modern.Object\Modern.Object.csproj", "{F0DF2EE4-93F3-40B5-A75B-6071831726C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
