@@ -1,7 +1,8 @@
-﻿using DataAccessLayer.Models;
-using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
 using Modern.DataAccessLayer.IRepository;
+using Modern.DataAccessLayer.Models;
+using Modern.DataAccessLayer.Repository;
 using System;
 using System.Data.Entity.Validation;
 using System.Threading.Tasks;
@@ -14,15 +15,18 @@ namespace Modern.DataAccessLayer.UOW
         private readonly ILogger _logger;
         private IDbContextTransaction _objTran;
         private string _errorMessage = string.Empty;
-        public IUserRepository User { get; }
-        public IKeyRepository KeyInfo { get; }
+        public IUserRepository user => new UserRepository(_context);
+        public IKeyRepository keyInfo => new KeyRepository(_context);
+        public IHomeTitleRepository homeTitle => new HomeTitleRepository(_context);
+        public IPageContentRepository contentBanner => new PageContentRepository(_context);
 
-        public UnitOfWork(ModernDataContext context, ILoggerFactory loggerFactory, IUserRepository userRepository, IKeyRepository keyRepository)
+        public UnitOfWork(ModernDataContext context, ILoggerFactory loggerFactory)
         {
             this._context = context;
             this._logger = loggerFactory.CreateLogger("logs");
-            this.KeyInfo = keyRepository;
-            this.User = userRepository;
+            //this.keyInfo = keyRepository;
+            //this.user = userRepository;
+            //this.homeTitle = homeTitleRepository;
             //_keyRepository = new GenericRepository<KeyHasKey>(_context, _logger);
             //_userRepository = new GenericRepository<UserUserInfo>(_context, _logger);
         }

@@ -1,5 +1,4 @@
-﻿using DataAccessLayer.Models;
-using Modern.DataAccessLayer.Repository;
+﻿using Modern.DataAccessLayer.Models;
 
 namespace Modern.DataAccessLayer.IRepository
 {
@@ -9,5 +8,15 @@ namespace Modern.DataAccessLayer.IRepository
 
     public interface IKeyRepository : IGenericRepository<KeyHasKey>
     {
+    }
+
+    public interface IHomeTitleRepository : IGenericRepository<HomeTitle>
+    {
+
+    }
+
+    public interface IPageContentRepository : IGenericRepository<PageContent>
+    {
+
     }
 }

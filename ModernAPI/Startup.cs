@@ -1,17 +1,10 @@
-using DataAccessLayer.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Modern.BisnessAccessLayer.IRepository;
-using Modern.BisnessAccessLayer.Repository;
-using Modern.DataAccessLayer.IRepository;
-using Modern.DataAccessLayer.Repository;
 using Modern.Object.Models;
-using Modern.Utility.ISecurity;
-using Modern.Utility.Security;
 using ModernAPI.Dependency;
 using System;
 using System.Text;

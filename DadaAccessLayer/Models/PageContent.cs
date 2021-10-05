@@ -7,14 +7,24 @@ using System.Collections.Generic;
 
 namespace Modern.DataAccessLayer.Models
 {
-    public partial class KeyHasKey
+    public partial class PageContent
     {
-        public int KeyId { get; set; }
-        public string KeyText { get; set; }
+        public PageContent()
+        {
+            PageImages = new HashSet<PageImages>();
+        }
+
+        public int ContentId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
         public bool IsActive { get; set; }
+        public DateTime PostDate { get; set; }
+        public bool IsHomeBanner { get; set; }
         public string CreateBy { get; set; }
         public DateTime? CreateAt { get; set; }
         public string UpdateBy { get; set; }
         public DateTime? UpdateAt { get; set; }
+
+        public virtual ICollection<PageImages> PageImages { get; set; }
     }
 }

@@ -1,5 +1,5 @@
-﻿using DataAccessLayer.Models;
-using Modern.DataAccessLayer.IRepository;
+﻿using Modern.DataAccessLayer.IRepository;
+using Modern.DataAccessLayer.Models;
 
 namespace Modern.DataAccessLayer.Repository
 {

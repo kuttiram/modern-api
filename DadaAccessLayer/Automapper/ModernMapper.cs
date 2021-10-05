@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DataAccessLayer.Models;
+using Modern.DataAccessLayer.Models;
 using Modern.Object.Models;
 
 namespace Modern.DataAccessLayer.Automapper
@@ -9,6 +9,10 @@ namespace Modern.DataAccessLayer.Automapper
         public ModernMapper()
         {
             CreateMap<UserUserInfo, LoginInfo>();
+            CreateMap<HomeTitle, HomeTitleObj>();
+            CreateMap<PageContent, PageBanner>()
+                    .ForMember(d => d.PageImages, o => o.MapFrom(src => src.PageImages));
+            CreateMap<PageImages, BannerImage>();
         }
     }
 }
