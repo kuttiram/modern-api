@@ -5,8 +5,8 @@ namespace Modern.DataAccessLayer.Repository
 {
     public class KeyRepository : GenericRepository<KeyHasKey>, IKeyRepository
     {
-        private readonly ModernDataContext _context;
-        public KeyRepository(ModernDataContext dataContext) : base(dataContext)
+        private readonly Modern_DataContext _context;
+        public KeyRepository(Modern_DataContext dataContext) : base(dataContext)
         {
             _context = dataContext;
         }

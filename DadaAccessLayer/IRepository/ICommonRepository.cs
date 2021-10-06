@@ -10,7 +10,7 @@ namespace Modern.DataAccessLayer.IRepository
     {
     }
 
-    public interface IHomeTitleRepository : IGenericRepository<HomeTitle>
+    public interface IHomeTitleRepository : IGenericRepository<PageTitle>
     {
 
     }

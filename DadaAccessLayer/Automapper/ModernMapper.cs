@@ -9,7 +9,7 @@ namespace Modern.DataAccessLayer.Automapper
         public ModernMapper()
         {
             CreateMap<UserUserInfo, LoginInfo>();
-            CreateMap<HomeTitle, HomeTitleObj>();
+            CreateMap<PageTitle, HomeTitle>();
             CreateMap<PageContent, PageBanner>()
                     .ForMember(d => d.PageImages, o => o.MapFrom(src => src.PageImages));
             CreateMap<PageImages, BannerImage>();

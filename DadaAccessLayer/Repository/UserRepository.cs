@@ -5,8 +5,8 @@ namespace Modern.DataAccessLayer.Repository
 {
     public class UserRepository : GenericRepository<UserUserInfo>, IUserRepository
     {
-        private readonly ModernDataContext _context;
-        public UserRepository(ModernDataContext context): base(context)
+        private readonly Modern_DataContext _context;
+        public UserRepository(Modern_DataContext context): base(context)
         {
             _context = context;
         }

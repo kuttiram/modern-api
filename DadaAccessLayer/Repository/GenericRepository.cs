@@ -11,8 +11,8 @@ namespace Modern.DataAccessLayer.Repository
 {
     public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        protected readonly ModernDataContext _context;
-        public GenericRepository(ModernDataContext context)
+        protected readonly Modern_DataContext _context;
+        public GenericRepository(Modern_DataContext context)
         {
             _context = context;
         }

@@ -12,9 +12,9 @@ namespace Modern.DataAccessLayer.Models
         public int KeyId { get; set; }
         public string KeyText { get; set; }
         public bool IsActive { get; set; }
-        public string CreateBy { get; set; }
-        public DateTime? CreateAt { get; set; }
-        public string UpdateBy { get; set; }
-        public DateTime? UpdateAt { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }
