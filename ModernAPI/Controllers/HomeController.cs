@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Modern.BisnessAccessLayer.IRepository;
+using System.Linq;
 
 namespace ModernAPI.Controllers
 {
@@ -27,6 +28,15 @@ namespace ModernAPI.Controllers
         {
             var responseResult = this._homeBusinessLogic.GetPageContentBanner();
             if (responseResult == null)
+                return NoContent();
+            return Ok(responseResult);
+        }
+
+        [HttpGet("GetBannerList")]
+        public IActionResult GetBannerList()
+        {
+            var responseResult = this._homeBusinessLogic.GetPageContentBanners();
+            if (responseResult == null && !responseResult.Any())
                 return NoContent();
             return Ok(responseResult);
         }

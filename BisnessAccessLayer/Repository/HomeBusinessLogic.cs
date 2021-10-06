@@ -2,6 +2,7 @@
 using Modern.BisnessAccessLayer.IRepository;
 using Modern.DataAccessLayer.UOW;
 using Modern.Object.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Modern.BisnessAccessLayer.Repository
@@ -27,6 +28,13 @@ namespace Modern.BisnessAccessLayer.Repository
         {
             var result = this._unitOfWork.contentBanner.Find(data => data.IsActive == true && data.IsHomeBanner == true).Result?
                             .Select(data => this._mapper.Map<PageBanner>(data)).FirstOrDefault();
+            return result;
+        }
+
+        public List<PageBanner> GetPageContentBanners()
+        {
+            var result = this._unitOfWork.contentBanner.Find(data => data.IsActive == true && data.IsHomeBanner != true).Result?
+                            .Select(data => this._mapper.Map<PageBanner>(data)).Take(4).ToList();
             return result;
         }
     }

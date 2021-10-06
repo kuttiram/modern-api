@@ -1,4 +1,5 @@
 ﻿using Modern.Object.Models;
+using System.Collections.Generic;
 
 namespace Modern.BisnessAccessLayer.IRepository
 {
@@ -6,5 +7,6 @@ namespace Modern.BisnessAccessLayer.IRepository
     {
         HomeTitle GetHomeTitle();
         PageBanner GetPageContentBanner();
+        List<PageBanner> GetPageContentBanners();
     }
 }
