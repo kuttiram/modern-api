@@ -14,7 +14,7 @@ namespace ModernAPI.Dependency
     {
         public static IServiceCollection AddRepository(this IServiceCollection services)
         {
-            services.AddDbContext<ModernDataContext>();
+            services.AddDbContext<Modern_DataContext>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IGamesRepository, GamesRepository>();
             services.AddScoped<IAesOperation, AesOperation>();

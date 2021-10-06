@@ -11,7 +11,7 @@ namespace Modern.DataAccessLayer.UOW
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ModernDataContext _context;
+        private readonly Modern_DataContext _context;
         private readonly ILogger _logger;
         private IDbContextTransaction _objTran;
         private string _errorMessage = string.Empty;
@@ -20,7 +20,7 @@ namespace Modern.DataAccessLayer.UOW
         public IHomeTitleRepository homeTitle => new HomeTitleRepository(_context);
         public IPageContentRepository contentBanner => new PageContentRepository(_context);
 
-        public UnitOfWork(ModernDataContext context, ILoggerFactory loggerFactory)
+        public UnitOfWork(Modern_DataContext context, ILoggerFactory loggerFactory)
         {
             this._context = context;
             this._logger = loggerFactory.CreateLogger("logs");

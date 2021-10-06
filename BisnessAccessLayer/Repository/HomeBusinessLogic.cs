@@ -16,10 +16,10 @@ namespace Modern.BisnessAccessLayer.Repository
             this._mapper = mapper;
         }
 
-        public HomeTitleObj GetHomeTitle()
+        public HomeTitle GetHomeTitle()
         {
             var result = this._unitOfWork.homeTitle.Find(data => data.IsActive == true).Result?
-                            .Select(data => this._mapper.Map<HomeTitleObj>(data)).FirstOrDefault();
+                            .Select(data => this._mapper.Map<HomeTitle>(data)).FirstOrDefault();
             return result;
         }
 

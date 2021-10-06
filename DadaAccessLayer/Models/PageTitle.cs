@@ -7,15 +7,15 @@ using System.Collections.Generic;
 
 namespace Modern.DataAccessLayer.Models
 {
-    public partial class HomeTitle
+    public partial class PageTitle
     {
         public int TitleId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public bool IsActive { get; set; }
-        public string CreateBy { get; set; }
-        public DateTime? CreateAt { get; set; }
-        public string UpdateBy { get; set; }
-        public DateTime? UpdateAt { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

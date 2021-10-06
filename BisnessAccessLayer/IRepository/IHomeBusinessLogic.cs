@@ -4,7 +4,7 @@ namespace Modern.BisnessAccessLayer.IRepository
 {
     public interface IHomeBusinessLogic
     {
-        HomeTitleObj GetHomeTitle();
+        HomeTitle GetHomeTitle();
         PageBanner GetPageContentBanner();
     }
 }

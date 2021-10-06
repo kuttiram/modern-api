@@ -15,9 +15,9 @@ namespace Modern.DataAccessLayer.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public byte[] Password { get; set; }
-        public string CreateBy { get; set; }
-        public DateTime? CreateAt { get; set; }
-        public string UpdateBy { get; set; }
-        public DateTime? UpdateAt { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Modern.DataAccessLayer.Repository
 {
-    public class HomeTitleRepository : GenericRepository<HomeTitle>, IHomeTitleRepository
+    public class HomeTitleRepository : GenericRepository<PageTitle>, IHomeTitleRepository
     {
-        private readonly ModernDataContext _context;
-        public HomeTitleRepository(ModernDataContext context) : base(context)
+        private readonly Modern_DataContext _context;
+        public HomeTitleRepository(Modern_DataContext context) : base(context)
         {
             _context = context;
         }
@@ -20,8 +20,8 @@ namespace Modern.DataAccessLayer.Repository
 
     public class PageContentRepository : GenericRepository<PageContent>, IPageContentRepository
     {
-        private readonly ModernDataContext _context;
-        public PageContentRepository(ModernDataContext context) : base(context)
+        private readonly Modern_DataContext _context;
+        public PageContentRepository(Modern_DataContext context) : base(context)
         {
             _context = context;
         }
