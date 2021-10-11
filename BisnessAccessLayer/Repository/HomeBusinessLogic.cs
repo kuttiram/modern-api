@@ -34,7 +34,7 @@ namespace Modern.BisnessAccessLayer.Repository
         public List<PageBanner> GetPageContentBanners()
         {
             var result = this._unitOfWork.contentBanner.Find(data => data.IsActive == true && data.IsHomeBanner != true).Result?
-                            .Select(data => this._mapper.Map<PageBanner>(data)).Take(4).ToList();
+                            .Select(data => this._mapper.Map<PageBanner>(data)).ToList();//.Take(4).ToList();
             return result;
         }
     }
