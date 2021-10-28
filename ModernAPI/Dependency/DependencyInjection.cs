@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Modern.BisnessAccessLayer.IRepository;
 using Modern.BisnessAccessLayer.Repository;
 using Modern.DataAccessLayer.IRepository;
@@ -14,7 +16,7 @@ namespace ModernAPI.Dependency
     {
         public static IServiceCollection AddRepository(this IServiceCollection services)
         {
-            services.AddDbContext<Modern_DataContext>();
+            services.AddDbContext<Modern_DataContext>(options => options.UseSqlServer(Startup.StaticConfig.GetConnectionString("dbConnection")));
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IGamesRepository, GamesRepository>();
             services.AddScoped<IAesOperation, AesOperation>();

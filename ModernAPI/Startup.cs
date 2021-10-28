@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Modern.DataAccessLayer.Models;
 using Modern.Object.Models;
 using ModernAPI.Dependency;
 using System;
@@ -13,9 +15,12 @@ namespace ModernAPI
 {
     public class Startup
     {
+        public static IConfiguration StaticConfig { get; private set; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            StaticConfig = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -36,9 +41,6 @@ namespace ModernAPI
 
             //Automapper Initilize
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); // or we can user typeof(ModernMapper)
-
-            //I don't want refer dataaccesslya in api
-            //services.AddDbContext<ModernDataContext>(options => options.UseSqlServer("Server=DESKTOP-GV4424J;Database=TestDB;Trusted_Connection=True;"));
 
             //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
