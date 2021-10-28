@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -10,9 +8,9 @@ namespace Modern.DataAccessLayer.Models
 {
     public partial class Modern_DataContext : DbContext
     {
-        public Modern_DataContext()
-        {
-        }
+        //public Modern_DataContext()
+        //{
+        //}
 
         public Modern_DataContext(DbContextOptions<Modern_DataContext> options)
             : base(options)
@@ -27,10 +25,10 @@ namespace Modern.DataAccessLayer.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=Modern_Data;Trusted_Connection=True;");
-            }
+            //if (!optionsBuilder.IsConfigured)
+            //{
+            //    optionsBuilder.UseSqlServer("Server=192.168.1.7,1433;Initial Catalog=Modern_Data;MultipleActiveResultSets=true;User ID=admin;Password=Ram@1170");
+            //}
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
